@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ListOf from "../../ListOf";
+import ListOf from "../../components/ListOf/ListOf";
 import * as Services from "../../services/services";
 
 class HomePage extends Component {
@@ -15,7 +15,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h2>Trending today</h2>
+        <h2 style={{marginLeft:'26px'}}>Trending today</h2>
         <ListOf items={this.state.articles} />
       </div>
     );

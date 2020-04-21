@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as Services from "../../services/services";
-import Casts from "../../Casts/Casts";
+import Casts from "../../components/Casts/Casts";
 const getMatchId = (props) => props.match.params.id;
 
 class CastsPage extends Component {
@@ -8,6 +8,7 @@ class CastsPage extends Component {
     super(props);
     this.state = { casts: null };
     this.id = getMatchId(this.props);
+    
   }
   componentDidMount() {
     Services.fetchCastById(this.id).then((data) => {
