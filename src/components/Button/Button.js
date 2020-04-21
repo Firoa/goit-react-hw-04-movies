@@ -1,31 +1,21 @@
 import React from 'react';
 import styles from './Button.module.css';
 import PropTypes from 'prop-types';
-import { withRouter} from "react-router-dom";
-const Button = ({ callbackfunc, text,type }) => {
-  
-  if (typeof callbackfunc === 'function'){
+import { withRouter } from 'react-router-dom';
+const Button = ({ callbackfunc, text, type }) => {
+  if (typeof callbackfunc === 'function') {
     return (
-      <button
-        onClick={callbackfunc}
-        className={styles.button}
-        type={type}
-      >
+      <button onClick={callbackfunc} className={styles.button} type={type}>
+        {text}
+      </button>
+    );
+  } else {
+    return (
+      <button className={styles.button} type={type}>
         {text}
       </button>
     );
   }
-  else{
-    return (    
-      <button       
-        className={styles.button}
-        type={type}
-      >
-        {text}
-      </button>
-    );
-  }
- 
 };
 
 Button.propTypes = {

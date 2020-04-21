@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Reviev from "../../components/Reviev/Reviev";
-import * as Services from "../../services/services";
-const getMatchId = (props) => props.match.params.id;
+import React, { Component } from 'react';
+import Reviev from '../../components/Reviev/Reviev';
+import * as Services from '../../services/services';
+const getMatchId = props => props.match.params.id;
 
 class ReviewsPage extends Component {
   constructor(props) {
@@ -10,14 +10,13 @@ class ReviewsPage extends Component {
     this.id = getMatchId(this.props);
   }
   componentDidMount() {
-    Services.fetchRevievsById(this.id).then((data) => {
+    Services.fetchRevievsById(this.id).then(data => {
       this.setState({ revievs: data });
     });
   }
-  componentDidUpdate(prevProps,prevState){
-      if(prevState.revievs !== this.state.revievs)
-      {
-      }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.revievs !== this.state.revievs) {
+    }
   }
   render() {
     const { revievs } = this.state;

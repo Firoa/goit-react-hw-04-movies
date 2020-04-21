@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SearchBar.module.css';
-import { withRouter} from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 class Searchbar extends Component {
   state = {
     searchStr: '',
@@ -17,7 +17,7 @@ class Searchbar extends Component {
 
   handeleSubmit = e => {
     e.preventDefault();
-    if(this.state.searchStr === '')return;
+    if (this.state.searchStr === '') return;
     this.props.onSearchSubmit(this.state.searchStr);
     this.handlerReset();
   };

@@ -5,8 +5,12 @@ import { Route, Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import styles from './MovieDetailsPage.module.css';
 
-const AsyncReviewsPage = lazy(()=>import('../ReviewsPage/ReviewsPage'/* webpackChunkName: "reviews-page" */))
-const AsyncCastsPage = lazy(()=>import('../CastsPage/CastsPage'/* webpackChunkName: "casts-page" */))
+const AsyncReviewsPage = lazy(() =>
+  import('../ReviewsPage/ReviewsPage' /* webpackChunkName: "reviews-page" */),
+);
+const AsyncCastsPage = lazy(() =>
+  import('../CastsPage/CastsPage' /* webpackChunkName: "casts-page" */),
+);
 
 const getMatchId = props => props.match.params.id;
 
@@ -54,10 +58,12 @@ class MovieInfoPage extends Component {
             </li>
           </ul>
           <Suspense fallback={<h1>Loading...</h1>}>
-          <Route path={`${match.path}/casts`} component={AsyncCastsPage} />
-          <Route path={`${match.path}/reviews`} component={AsyncReviewsPage} />
+            <Route path={`${match.path}/casts`} component={AsyncCastsPage} />
+            <Route
+              path={`${match.path}/reviews`}
+              component={AsyncReviewsPage}
+            />
           </Suspense>
-          
         </div>
       </div>
     );
