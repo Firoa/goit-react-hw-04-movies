@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import NotFoundPage from '../../pages/NotFound';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Navigation from '../Nav/Nav';
 
 const AsyncHomePage = lazy(() =>
@@ -25,8 +24,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={AsyncHomePage} />
           <Route path="/movies/:id" component={AsyncMovieDetailsPage} />
-          <Route path="/movies" component={AsyncMoviesPage} />
-          <Route component={NotFoundPage} />
+          <Route path="/movies" component={AsyncMoviesPage} />          
+          <Redirect to='/'/>
         </Switch>
       </Suspense>
     </div>
